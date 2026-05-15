@@ -36,6 +36,56 @@ or
 ```go
 varName := varValue
 ```
+Global variables cannot be declared with ```:=```, only locals.
+
+## Advanced Variable Declaration
+Variables declared without a value will be set to a default value like 0 or nil.
+```go
+var (
+    id int
+ 	gopher string = "abc"
+ 	alive bool = true
+)
+```
+
+## Variable Assignment
+Variables are assigned with ```=```.
+
+## Slice Declaration
+Slices can be declared with a predefined data set,
+as shown below. Providing ```*sliceSize``` is optional, as the compiler will automatically know the size.
+
+```go
+x := [*sliceSize]varType {var1, var2, var3}
+```
+You can declare a slice with a predetermined size.
+
+```go
+x := make([]varType, size)
+```
+
+## Map Declaration
+Maps are just like dictionaries in Python with (K,V) pairs.
+
+```go
+m := map[keyType]valueType {
+    key1: key1,
+    key2: key2,
+    ...
+}
+```
+
+Making a map with make.
+```go
+m := make(map[keyType]valueType) 
+```
+
+You can also declare maps with a predetermined size.
+
+```go
+m := make(map[keyType]valueType, size)
+```
+
 
 ## Basic Function Declaration
 ```go
@@ -46,6 +96,7 @@ func myFunc(varName1 VarType1, varName2 VarType2) (returnType1, returnType2) {
 ```
 
 ## Advanced Function Declaration
+The return values are automatically made and are set to a default value like 0 or nil.
 ```go
 func myFunc(varName1 VarType1, varName2 VarType2) (returnName1 returnType1,returnName2 returnType2) {
     returnName1 = returnValue1
