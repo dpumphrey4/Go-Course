@@ -29,16 +29,16 @@ For the Wikipedia fans https://en.wikipedia.org/wiki/Go_(programming_language).
 
 ## Basic Variable Declaration
 Variables in Go can be declared with
-```
+```go
 var varName varType = varValue
 ```
 or
-```
+```go
 varName := varValue
 ```
 
 ## Basic Function Declaration
-```
+```go
 func myFunc(varName1 VarType1, varName2 VarType2) (returnType1, returnType2) {
     ...
     return var1, var2
@@ -46,7 +46,7 @@ func myFunc(varName1 VarType1, varName2 VarType2) (returnType1, returnType2) {
 ```
 
 ## Advanced Function Declaration
-```
+```go
 func myFunc(varName1 VarType1, varName2 VarType2) (returnName1 returnType1,returnName2 returnType2) {
     returnName1 = returnValue1
     returnName2 = returnValue2
