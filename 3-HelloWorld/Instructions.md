@@ -4,7 +4,8 @@ This "HelloWorld" is going to be diffrent than the ones you usually do. For this
 Start by creating your module by running ```go mod init HelloWorld```, this should create the go.mod file in your local directory and then you may begin programming.
 
 Your code should be similar to this, if you are copying this code, try changing the data types for your example.
-``` 
+
+```go 
 package main
 
 var y = 54
@@ -15,4 +16,6 @@ func main() {
 	println("This is the value of y: ", y)
 }
 ```
+
+Use the debugger. I want you to be able to stop execution and examine variables, maybe change the value of variables, step into and out of functions. Once you are confortable using the debugger, then you are done. Please make the code as complex or as simple as you wish.
 

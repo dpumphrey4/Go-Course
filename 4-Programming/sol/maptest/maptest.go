@@ -28,8 +28,8 @@ func AddToMap(key string, value uint32, myMap map[string]uint32) {
 
 func GetFromMap(key string, myMap map[string]uint32) (uint32, error) {
 	// If you don't check for the existance, it'll give a default value like 0
-	val, ok := myMap[key]
-	if ok == true {
+	val, exists := myMap[key]
+	if exists {
 		return val, nil
 	}
 
