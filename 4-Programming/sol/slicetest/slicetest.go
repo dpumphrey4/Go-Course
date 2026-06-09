@@ -114,6 +114,19 @@ func SlicesPanic() {
 	fmt.Printf("Changed %d to %d\n", index, x[index])
 }
 
+func SlicePointer() {
+	x := []int{1, 2, 3, 4, 5}
+	y := &x
+
+	fmt.Println("Before appending to the pointer")
+	printSlice(x)
+
+	*y = append(*y, 6)
+
+	fmt.Println("After appending to the pointer")
+	printSlice(x)
+}
+
 func printSlice(x []int) {
 	for i, v := range x {
 		fmt.Printf("%d: %d\n", i, v)

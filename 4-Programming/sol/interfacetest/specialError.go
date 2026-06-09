@@ -1,4 +1,4 @@
-package structtest
+package interfacetest
 
 import "fmt"
 
@@ -13,6 +13,6 @@ func (r specialError) Error() string {
 }
 
 func getSpecialError() error {
-	err := specialError{StatusCode: 100, Message: "You failed", developerMsg: "You failed because the answer was 42."}
+	err := specialError{StatusCode: 100, Message: "You failed", developerMsg: "You failed because the answer was 24."}
 	return err
 }

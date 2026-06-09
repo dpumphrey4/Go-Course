@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package gophers;
+
+option go_package = "./gophers";
+
+message Gopher {
+  string name = 1;
+  int32 age = 2;
+  repeated string burrows = 3;
+}

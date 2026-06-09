@@ -17,3 +17,10 @@ In this section I want you to focus on playing with Go. Specifically the syntax,
 ## Packages
 1. Put any code you'd like inside it's own directory and try to import it.
 2. Experiment with public and private elements.
+
+## Structures and Pointers
+1. Make a struct, give it a bunch of members and then pass it to a function. Have the function change it and check the values from the callee function.
+2. Figure out how to append to a slice or change a struct by passing it to another function.
+
+## Utilize Interfaces
+1. Find an interface or make your own. Once you choose your interface make a struct that then implements that interface.

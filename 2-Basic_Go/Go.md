@@ -171,6 +171,7 @@ delete(customMap, key)
 
 
 ## Basic Function Declaration
+Function parameters in Go are pass by value, just like C/C++.
 ```go
 func myFunc(varName1 VarType1, varName2 VarType2) (returnType1, returnType2) {
     ...
@@ -230,6 +231,15 @@ mystruct := User{Name: "Go"}
 fmt.Println(mystruct.Greet())
 ```
 
+## Pointers
+Pointers work very similarly to C/C++, you do not have to free any memory as the Go runtime will take care of that for you. Passing pointers can be more efficient than passing values. Set a pointer to nil if you don't want it pointing to anything.
+
+```go
+x := value
+
+y := &x
+y = nil
+```
 
 ## Interfaces
 Interfaces are types that contain a set of method signatures. Implementing methods with the same signatures as those listed in an interface, implicitly allows you to pass the struct as a interface.
@@ -377,12 +387,12 @@ If there is no data in a channel you are attempting to receive from then it will
 You can attempt to receive data from many channels using a select block.
 ```go
 select {
-case msg1 := <-chan1:
-    fmt.Println("received 1", msg1)
-case msg2 := <-chan2:
-    fmt.Println("received 2", msg2)
-case <-time.After(1 * time.Second):
-    fmt.Println("timeout")
+    case msg1 := <-chan1:
+        fmt.Println("received 1", msg1)
+    case msg2 := <-chan2:
+        fmt.Println("received 2", msg2)
+    case <-time.After(1 * time.Second):
+        fmt.Println("timeout")
 }
 ```
 

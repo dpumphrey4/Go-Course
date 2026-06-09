@@ -17,5 +17,5 @@ func main() {
 }
 ```
 
-Use the debugger. I want you to be able to stop execution and examine variables, maybe change the value of variables, step into and out of functions. Once you are confortable using the debugger, then you are done. Please make the code as complex or as simple as you wish.
+Use the debugger inside of VS Code. I want you to be able to stop execution and examine variables, maybe change the value of variables, step into and out of functions. Once you are confortable using the debugger, then you are done. Please make the code as complex or as simple as you wish.
 

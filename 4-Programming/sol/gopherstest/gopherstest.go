@@ -3,6 +3,7 @@ package gopherstest
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 )
 
 type gopher struct {
@@ -17,13 +18,17 @@ var names = []string{"Aria", "Nolan", "Sienna", "Jasper", "Kiara", "Theo"}
 // This is running on the main goroutine
 func MainGopher() {
 	fmt.Println("Basic Gophers============================================")
+
+	// Making a waitgroup
+	var wg sync.WaitGroup
+
 	// Making the channel
 	gophers := make(chan gopher, 20)
 
 	// Starting the goroutines
-	go gopherSleep(gophers)
-	go gopherKill(gophers)
-	go gopherRun(gophers)
+	wg.Go(func() { gopherSleep(gophers) })
+	wg.Go(func() { gopherKill(gophers) })
+	wg.Go(func() { gopherRun(gophers) })
 
 	// Filling the channel with 100 gophers
 	for i := 0; i < 100; i++ {
@@ -38,6 +43,9 @@ func MainGopher() {
 
 	// Closing the channel
 	close(gophers)
+
+	// Waiting until completion
+	wg.Wait()
 }
 
 func gopherSleep(gophers chan gopher) {

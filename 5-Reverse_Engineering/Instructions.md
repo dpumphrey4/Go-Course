@@ -1,3 +1,59 @@
+# Instructions
+Compile your Go binary in section 4 with ```go build```. Then import the binary into a Ghidra project.
+
+Compile your Go binary in section 4 with ```go build -ldflags="-s -w"```. Then import the binary into a Ghidra project. What is the difference?
+
+Run ```strings``` or some equivalent on your Go binary. Scroll and discuss with your classmates your findings.
+
+```
+DO NOT GO PAST THIS POINT UNTIL THE INSTRUCTOR SAYS SO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
 # Reverse Engineering
 Go is extremely easy to reverse engineer because it doesn't natively come with the ability to obfuscate.
 

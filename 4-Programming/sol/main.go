@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"programming/filetest"
 	"programming/gopherstest"
+	"programming/interfacetest"
 	"programming/maptest"
 	"programming/slicetest"
-	"programming/structtest"
 )
 
 func basicSlices() {
@@ -15,6 +15,7 @@ func basicSlices() {
 	slicetest.SlicesOnSlices2()
 	slicetest.CloneSlice()
 	slicetest.SlicesPanic()
+	slicetest.SlicePointer()
 }
 
 func basicMaps() {
@@ -43,6 +44,6 @@ func main() {
 	basicSlices()
 	basicMaps()
 	writingFiles()
-	structtest.ErrorTest()
+	interfacetest.ErrorTest()
 	gopherstest.MainGopher()
 }
