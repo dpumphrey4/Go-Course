@@ -14,7 +14,7 @@ sudo apt install protobuf-compiler
 
 Windows (Powershell)
 ```powershell
-winget install ProtocolBuffers.Protobuf
+winget install Google.Protobuf
 ```
 
 Once installed run this to confirm installation.
