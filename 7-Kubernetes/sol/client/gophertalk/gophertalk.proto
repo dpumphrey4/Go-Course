@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package gophertalk;
+
+option go_package = "./";
+
+// Service
+service GopherChat {
+    rpc SendChirp(Chirp) returns (Chitter);
+    rpc SendNibble(Nibble) returns (GnawAck);
+}
+
+// Request messages
+message Chirp {
+    string sender = 1;
+    string message = 2;
+    int64 timestamp = 3;
+}
+
+message Nibble {
+    string sender = 1;
+    string content = 2;
+}
+
+// Response messages
+message Chitter {
+    string responder = 1;
+    string message = 2;
+}
+
+message GnawAck {
+    string responder = 1;
+    bool received = 2;
+}
