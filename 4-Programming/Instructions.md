@@ -23,4 +23,12 @@ In this section I want you to focus on playing with Go. Specifically the syntax,
 2. Figure out how to append to a slice or change a struct by passing it to another function.
 
 ## Utilize Interfaces
-1. Find an interface or make your own. Once you choose your interface make a struct that then implements that interface.
+1. Find an interface or make your own. Once you choose your interface make a struct that then implements that interface. (Hint: You can use the error interface)
+
+## Goroutines
+1. Figure out how to make a Goroutine, play with scheduling of Goroutines by attempting to start some at the same time.
+2. Pass data between Goroutines using channels, keep in mind you can share a channel across an infinite number of Goroutines. Experiment and have fun.
+
+## 
+
+

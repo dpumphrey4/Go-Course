@@ -25,7 +25,7 @@ func MainGopher() {
 	// Making the channel
 	gophers := make(chan gopher, 20)
 
-	// Starting the goroutines
+	// Starting the goroutines (same as "go gopherSleep()" but it's assigned to a waitgroup)
 	wg.Go(func() { gopherSleep(gophers) })
 	wg.Go(func() { gopherKill(gophers) })
 	wg.Go(func() { gopherRun(gophers) })
@@ -75,6 +75,6 @@ func gopherRun(gophers chan gopher) {
 		if ok == false {
 			break
 		}
-		fmt.Printf("Number: %d, Gopher: %s, age: %d, is dead.\n", localGopher.Number, localGopher.Name, localGopher.Age)
+		fmt.Printf("Number: %d, Gopher: %s, age: %d, is running.\n", localGopher.Number, localGopher.Name, localGopher.Age)
 	}
 }

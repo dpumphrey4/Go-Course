@@ -73,7 +73,7 @@ Run one of the following commands in the base directory of the project.
 go build
 
 // The binary will not have debug information
-go build -ldflags="-s -w"
+go build -ldflags="-s -w" -trimpath
 
 // Specify the executable name, otherwise will use module name
 go build -o myexec
@@ -135,8 +135,8 @@ Maps are just like dictionaries in Python with (K,V) pairs.
 
 ```go
 m := map[keyType]valueType {
-    key1: key1,
-    key2: key2,
+    key1: value1,
+    key2: value2,
     ...
 }
 ```
@@ -169,6 +169,51 @@ Deleting from a map is also simple.
 delete(customMap, key)
 ```
 
+## File Operations
+File operations are extraordinarily similar to Python.
+
+You can create and open a new file.
+```go
+// This will truncate the file if it already exists.
+f, err := os.Create(filename)
+if err != nil {
+    // error handling
+}
+
+// Continue processing........
+
+// Success, done and closing the file. (You can actually defer this and put it right after the error check)
+f.Close()
+```
+
+You can open an existing file.
+```go
+f, err := os.Open(filename)
+if err != nil {
+    // error handling
+}
+
+// Continue processing........
+
+// Success, done and closing the file. (You can actually defer this and put it right after the error check)
+f.Close()
+```
+
+For simple matters creating, writing and closing a file can be done in one line.
+Or opening, reading, and closing a file can be done in one line.
+```go
+// Error handle as appropriate
+err := os.WriteFile(filename, data, 0644)
+
+// Error handle as appropriate
+data, err := os.ReadFile(filename)
+```
+
+
+## Network Connections
+
+
+`WARNING: Maps can cause a panic if you attempt to read and write to a map at the same time.`
 
 ## Basic Function Declaration
 Function parameters in Go are pass by value, just like C/C++.
@@ -415,3 +460,5 @@ v, ok := <-chan1
 It is important to know that you cannot send data to a closed channel, you may only receive from one. The sender should always close the channel and you do not have to always close channels, if a channel is no longer used in the program, the garbage collector will rid of it.
 
 Generally speaking, a channel should only be closed when it is signaling to receivers that it is no longer sending anymore data.
+
+`WARNING: Go will panic if you attempt to send data to a closed channel.`
