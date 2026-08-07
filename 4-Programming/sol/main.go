@@ -2,48 +2,50 @@ package main
 
 import (
 	"fmt"
-	"programming/filetest"
-	"programming/gopherstest"
-	"programming/interfacetest"
-	"programming/maptest"
-	"programming/slicetest"
+	"programming/fileoperations"
+	"programming/gophers"
+	"programming/interfaces"
+	"programming/maps"
+	"programming/slices"
+	"programming/structs"
 )
 
 func basicSlices() {
 	fmt.Println("Basic Slices===========================================")
-	slicetest.SlicesOnSlices1()
-	slicetest.SlicesOnSlices2()
-	slicetest.CloneSlice()
-	slicetest.SlicesPanic()
-	slicetest.SlicePointer()
+	slices.SlicesOnSlices1()
+	slices.SlicesOnSlices2()
+	slices.CloneSlice()
+	slices.SlicesPanic()
+	slices.SlicePointer()
 }
 
 func basicMaps() {
 	fmt.Println("Basic Maps=============================================")
-	myMap := maptest.MakeMap()
-	maptest.AddToMap("slices", 42, myMap)
-	myValue, err := maptest.GetFromMap("slices", myMap)
+	myMap := maps.MakeMap()
+	maps.AddToMap("slices", 42, myMap)
+	myValue, err := maps.GetFromMap("slices", myMap)
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Printf("This is the value I received: %d\n", myValue)
+		fmt.Printf("This is the value I received: %s = %d\n\n", "slices", myValue)
 	}
 
 }
 
 func writingFiles() {
 	fmt.Println("Basic Files============================================")
-	filetest.CreateFile("data.txt")
-	filetest.WriteFile("data2.txt", []byte("This is my message, I love gophers."))
-	filetest.Writing("data3.txt", []byte("This is my message, I love gophers.\n"), "So do I.")
-	filetest.ReadFile("data3.txt")
-	filetest.RemoveFiles([]string{"data.txt", "data2.txt", "data3.txt"})
+	fileoperations.CreateFile("data.txt")
+	fileoperations.WriteFile("data2.txt", []byte("This is my message, I love gophers."))
+	fileoperations.Writing("data3.txt", []byte("This is my message, I love gophers.\n"), "So do I.")
+	fileoperations.ReadFile("data3.txt")
+	fileoperations.RemoveFiles([]string{"data.txt", "data2.txt", "data3.txt"})
 }
 
 func main() {
 	basicSlices()
 	basicMaps()
 	writingFiles()
-	interfacetest.ErrorTest()
-	gopherstest.MainGopher()
+	structs.StructTest()
+	interfaces.ErrorTest()
+	gophers.MainGopher()
 }

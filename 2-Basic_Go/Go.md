@@ -169,50 +169,6 @@ Deleting from a map is also simple.
 delete(customMap, key)
 ```
 
-## File Operations
-File operations are extraordinarily similar to Python.
-
-You can create and open a new file.
-```go
-// This will truncate the file if it already exists.
-f, err := os.Create(filename)
-if err != nil {
-    // error handling
-}
-
-// Continue processing........
-
-// Success, done and closing the file. (You can actually defer this and put it right after the error check)
-f.Close()
-```
-
-You can open an existing file.
-```go
-f, err := os.Open(filename)
-if err != nil {
-    // error handling
-}
-
-// Continue processing........
-
-// Success, done and closing the file. (You can actually defer this and put it right after the error check)
-f.Close()
-```
-
-For simple matters creating, writing and closing a file can be done in one line.
-Or opening, reading, and closing a file can be done in one line.
-```go
-// Error handle as appropriate
-err := os.WriteFile(filename, data, 0644)
-
-// Error handle as appropriate
-data, err := os.ReadFile(filename)
-```
-
-
-## Network Connections
-
-
 `WARNING: Maps can cause a panic if you attempt to read and write to a map at the same time.`
 
 ## Basic Function Declaration
@@ -348,12 +304,136 @@ func Sum[T Number](a, b T) T {
 }
 ```
 
+
+## Imports
+Functionality can be provided via the standard library.
+
+```go
+import (
+    "fmt"
+    "math/rand"
+    crand "crypto/rand" // alias, use with crand.X
+    "io"
+)
+```
+
+View all of the standard libary here: https://pkg.go.dev/std.
+
+
+## File Operations
+File operations are extraordinarily similar to Python.
+
+You can create and open a new file.
+```go
+// This will truncate the file if it already exists.
+f, err := os.Create(filename)
+if err != nil {
+    // error handling
+}
+
+// Continue processing........
+
+// Success, done and closing the file. (You can actually defer this and put it right after the error check)
+f.Close()
+```
+
+You can open an existing file.
+```go
+f, err := os.Open(filename)
+if err != nil {
+    // error handling
+}
+
+// Continue processing........
+
+// Success, done and closing the file. (You can actually defer this and put it right after the error check)
+f.Close()
+```
+
+For simple matters creating, writing and closing a file can be done in one line.
+Or opening, reading, and closing a file can be done in one line.
+```go
+// Error handle as appropriate
+err := os.WriteFile(filename, data, 0644)
+
+// Error handle as appropriate
+data, err := os.ReadFile(filename)
+```
+
+## Network Connections
+Network connections are almost as simple as they are in Python.
+
+Creating a listener and accepting a client:
+```go
+// Open the listener
+listener, err := net.Listen("tcp", ":8080")
+
+// Accept a client connection
+conn, err := listener.Accept()
+
+// Read from client
+buf := make([]byte, 1024)
+bytes_read, err := conn.Read(buf)
+
+// Write to client
+conn.Write([]byte("Hello from server"))
+```
+
+A client contacting a listener:
+```go
+// Attempt to connect
+conn, err:= net.Dial("tcp", "localhost:8080")
+
+// Write to server
+conn.Write([]byte("Hello from client"))
+
+// Read from server
+buf := make([]byte, 1024)
+bytes_read, err := conn.Read(buf)
+```
+
+Remember to error handle as appropriate.
+
 ## Packages and Modules
 A package in Go, is simply all the code in a single directory. All code in the same directory/package is accessible to each other.
 
 A module is a collection of packages used to build a program or library. It will contain the ```go.mod``` file which specifies what version of Go is being used as well as other dependencies.
 
-## Identifiers
+## External Dependencies
+You can import external modules and utilize their functionality.
+
+Download external modules using `go get`.
+```bash
+go get github.com/google/uuid@latest
+```
+
+External modules will show up in `go.mod` and `go.sum` files. 
+
+`go.mod` Will contain a list of external imports. There is an optional additional comment `// indirect` if you do not have the source code locally and it must be downloaded from the internet.
+
+`go.sum` Will contain two lines with hashes for every external module, one will be the hash of the entire module and the other will be the hash of it's `go.mod`, this helps it quickly find dependencies that have changed.
+
+Import them as so:
+
+```go
+import (
+    "fmt"
+    "github.com/google/uuid"
+)
+```
+
+Here are a list of commands to manage external dependencies.
+
+| Command  | Purpose |
+|-------|----:|
+| `go get <package>@<version>`   |   Add or upgrade a dependency.
+| `go get <package>@none` | Remove a dependency.  |
+| `go mod tidy` | Add missing modules and remove unused module requirements. |
+| `go mod download` | Download dependencies to local module cache. |
+| `go mod verify` | Validate cached modules against `go.sum`. |
+
+
+## Identifiers (Public and Private)
 Variables, contants, functions, structs, struct fields, interfaces and methods can be public or private, depending on the capitialization of the first character of the name. If the first character is uppercase, then it is public, if the character is lowercase then it is private.
 
 ## Nil

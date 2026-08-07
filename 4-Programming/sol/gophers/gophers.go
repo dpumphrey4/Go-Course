@@ -1,4 +1,4 @@
-package gopherstest
+package gophers
 
 import (
 	"fmt"

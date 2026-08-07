@@ -1,4 +1,4 @@
-package maptest
+package maps
 
 import (
 	"fmt"
@@ -41,4 +41,5 @@ func printMap(x map[string]uint32) {
 	for s, i := range x {
 		fmt.Printf("%s: %d\n", s, i)
 	}
+	fmt.Println()
 }

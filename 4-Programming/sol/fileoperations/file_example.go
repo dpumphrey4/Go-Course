@@ -1,4 +1,4 @@
-package filetest
+package fileoperations
 
 import (
 	"fmt"
@@ -21,6 +21,8 @@ func CreateFile(filename string) {
 }
 
 func WriteFile(filename string, data []byte) {
+	fmt.Printf("Writing to a file: %s\n\n", filename)
+
 	// Single line to write to a file, just provide permissions
 	err := os.WriteFile(filename, data, 0644)
 
@@ -42,6 +44,8 @@ func Writing(filename string, dataBytes []byte, dataStr string) {
 	}
 	defer f.Close()
 
+	fmt.Printf("Writing to an open file: %s\n\n", filename)
+
 	// Writing bytes and a string to the file
 	f.Write(dataBytes)
 	f.WriteString(dataStr)
@@ -53,6 +57,8 @@ func Writing(filename string, dataBytes []byte, dataStr string) {
 }
 
 func ReadFile(filename string) {
+	fmt.Printf("Reading an entire file at once: %s\n", filename)
+
 	// This will open, read and close the file
 	data, err := os.ReadFile(filename)
 	if err != nil {
@@ -62,6 +68,8 @@ func ReadFile(filename string) {
 
 	// Convert bytes to string
 	fmt.Println(string(data))
+
+	fmt.Println()
 }
 
 // Removing files in the list
@@ -73,13 +81,17 @@ func RemoveFiles(files []string) {
 
 // Reading a file from a currently open file
 func readFileObj(file *os.File) {
+	fmt.Printf("Reading from open file: %s\n", file.Name())
+
 	buf := make([]byte, 1000)
 
 	_, err := file.Read(buf)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("%s\n\n", err)
 		return
 	}
 
 	fmt.Println(buf)
+	fmt.Println("")
+
 }

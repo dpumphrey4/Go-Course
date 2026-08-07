@@ -11,6 +11,12 @@ In this section I want you to focus on playing with Go. Specifically the syntax,
 2. Figure out how Go prevents crashes when grabbing a key from a map that doesn't exist. (There are 2 answers to this)
 
 ## Files
+For this I don't want you to look at `Go.md` instead I want you to look at the `os` package using Intellisense. Import `os` and type `os.`, see what functions show up and play with them.
+
+Once you are using some functions from `os`, control + left click or hover over the function and press F12 to enter the Go lang source code. Try to get an understanding of how file operations are happening.
+
+You can also use the official Go lang documentation.
+
 1. Learn how to create files, write to them, read from them and delete them.
 2. Understand how to handle errors and use ```defer```.
 

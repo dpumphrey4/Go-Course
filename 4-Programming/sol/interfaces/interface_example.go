@@ -1,4 +1,4 @@
-package interfacetest
+package interfaces
 
 import (
 	"errors"
@@ -12,6 +12,6 @@ func ErrorTest() {
 	fmt.Println(err.Error())
 
 	if specialErr, ok := errors.AsType[specialError](err); ok {
-		fmt.Println(specialErr.developerMsg)
+		fmt.Printf("%s\n\n", specialErr.developerMsg)
 	}
 }
