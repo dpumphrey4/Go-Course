@@ -32,9 +32,8 @@ You can also use the official Go lang documentation.
 1. Find an interface or make your own. Once you choose your interface make a struct that then implements that interface. (Hint: You can use the error interface)
 
 ## Goroutines
-1. Figure out how to make a Goroutine, play with scheduling of Goroutines by attempting to start some at the same time.
-2. Pass data between Goroutines using channels, keep in mind you can share a channel across an infinite number of Goroutines. Experiment and have fun.
+1. Figure out how to make a goroutine, play with scheduling of goroutines by attempting to start some at the same time.
+2. Pass data between goroutines using channels, keep in mind you can share a channel across an infinite number of goroutines. Experiment and have fun.
 
-## 
 
 

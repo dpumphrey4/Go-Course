@@ -5,6 +5,40 @@ Protobufs are intended to replace JSON. JSON is human readable but profobufs are
 
 Protobufs come with their own compiler which convert protobuf designs stored in ```.proto``` files into usable code for a variety of languages like C/C++, Go, C#, Java, Python and others.
 
+## Protobuf Files
+Protobufs use their own files (.proto) which then are ran with the protobuf compiler to generate code for your program. Below is an example of a protobuf file.
+
+```proto
+syntax = "proto3";
+
+package example.v1;
+
+// A user in the system.
+message User {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  int32 age = 4;
+}
+
+// Request to fetch a user.
+message GetUserRequest {
+  string id = 1;
+}
+
+// Response containing the user.
+message GetUserResponse {
+  User user = 1;
+}
+
+// A simple gRPC service.
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+}
+```
+
+Think of each message as a custom data type like a struct, while the services are transport mechanisms.
+
 ## Installing the Protobuf Compiler
 
 Ubuntu/Debian
@@ -63,7 +97,7 @@ go get google.golang.org/protobuf
 
 Enough setup now moving onto the task at hand.
 
-I want you to understand the power of protobufs, so I want you to create your own protobuf or protobufs and compare it to its JSON equivalent. Specifically the size difference between the two, you can compare the speed as well if you want.
+I want you to understand the power of protobufs, so I want you to create your own protobuf or protobufs and compare it to its JSON equivalent. Specifically the size difference between the two, you can compare the speed of serializing/deserializing as well if you want.
 
 Just add the following packages in your imports.
 ```
