@@ -60,6 +60,8 @@ Run ```go mod init ProjectName``` to start development. This will create a go.mo
 
 Execution begins with a typical main function, there are no parameters.
 ```go
+package main
+
 func main() {
 
 }
@@ -271,7 +273,7 @@ MakeItSpeak(dog)
 ```
 
 ## Generics
-These can work with any type of data
+These can work with any type of data.
 ```go
 // T is a type parameter restricted by the 'any' constraint
 func PrintSlice[T any](s []T) {
@@ -395,7 +397,7 @@ bytes_read, err := conn.Read(buf)
 Remember to error handle as appropriate.
 
 ## Packages and Modules
-A package in Go, is simply all the code in a single directory. All code in the same directory/package is accessible to each other.
+A package in Go, is simply all the code in a single directory. All code in the same directory/package are accessible to each other.
 
 A module is a collection of packages used to build a program or library. It will contain the ```go.mod``` file which specifies what version of Go is being used as well as other dependencies.
 
@@ -486,6 +488,12 @@ go myGopherFunction()
 To put it plainly, this is wizardry. Go will automatically handle the scheduling of this goroutine, it could be placed on a different thread or it might run on the current one that called it. Load balancing is automatically handled by Go and the OS scheduler.
 
 Goroutines can spawn more goroutines, and thus you can have nested goroutines. But they aren't really nested, just spawned in a nested fashion.
+
+The main thread of a Go program is not actually a main thread, it's the main goroutine.
+
+```WARNING: Resources can be locked betwen goroutines and create a deadlock situation. If this occurs the runtime will recognize this and kill the process.```
+
+```WARNING: If the main goroutine closes, all goroutines will close and the program will end.```
 
 
 ### Channels
