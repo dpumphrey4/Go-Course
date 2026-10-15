@@ -1,12 +1,29 @@
 # Instructions
-Compile your Go binary in section 4 with ```go build```. Then import the binary into a Ghidra project.
+Compile your Go binary or binaries in section 4 with ```go build```.
 
-Compile your Go binary in section 4 with ```go build -ldflags="-s -w" -trimpath```. Then import the binary into a Ghidra project. What is the difference?
+Take a binary, run ```strings``` or some equivalent on it and pipe the output to a file. Scroll and discuss with your classmates your findings. There should be something off about the output.
 
-Run ```strings``` or some equivalent on your Go binary. Scroll and discuss with your classmates your findings.
+Take the binary and import it into Ghidra, then recompile the binary with ```go build -ldflags="-s -w" -trimpath```. Then import the binary into a Ghidra project. What is the difference?
+
+Take some time to look at the functions in the Decompiler and in the listing view. What is interesting or off about these compared to C binaries?
+
 
 ```
 DO NOT GO PAST THIS POINT UNTIL THE INSTRUCTOR SAYS SO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
