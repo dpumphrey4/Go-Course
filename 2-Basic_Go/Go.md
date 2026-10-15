@@ -131,6 +131,13 @@ x := []int{1, 2, 3, 4, 5}
 y := x[1:4]
 ```
 
+Add variables to a slice like so.
+```go
+x := []int{1, 2, 3, 4, 5}
+x = append(x, 20)
+```
+
+`WARNING: Slices can cause a panic if you attempt to access a member out of bounds.`
 
 ## Maps
 Maps are just like dictionaries in Python with (K,V) pairs.
@@ -172,6 +179,48 @@ delete(customMap, key)
 ```
 
 `WARNING: Maps can cause a panic if you attempt to read and write to a map at the same time.`
+
+## Conditionals
+Go comes with the standard `if` and `else` statements.
+
+```go
+// Basic if
+if x > y {
+    // Do something
+}
+
+// Basic if-else
+if x > y {
+
+} else if y > z {
+
+}
+```
+
+## Loops
+Go comes with a `for` loop, it doesn't come with any other flavor.
+
+```go
+
+// For loop
+for index, value := range myslice {
+    fmt.Println(value)
+}
+
+// For loop as a while loop
+for x > y {
+
+}
+
+// For loop as a do while loop
+for {
+
+    if condition {
+        break
+    }
+}
+```
+
 
 ## Basic Function Declaration
 Function parameters in Go are pass by value, just like C/C++.
@@ -399,7 +448,30 @@ Remember to error handle as appropriate.
 ## Packages and Modules
 A package in Go, is simply all the code in a single directory. All code in the same directory/package are accessible to each other.
 
+All `.go` files must begin with the line `package <directory_name>`, unless they are in the same directory as `go.mod`, which begin with `package main`.
+
 A module is a collection of packages used to build a program or library. It will contain the ```go.mod``` file which specifies what version of Go is being used as well as other dependencies.
+
+## Imports
+This is a list of basic imports, you should be able to deduce what they might be used for based on their names. There are plenty more in the standard library and you can check the Go documentation/internet to find the dependencies you need.
+
+```go
+import (
+    "context"
+    "encoding/json"
+    "errors"
+    "fmt"
+    "io"
+    "log/slog"
+    "net/http"
+    "os"
+    "path/filepath"
+    "slices"
+    "strings"
+    "sync"
+    "time"
+)
+```
 
 ## External Dependencies
 You can import external modules and utilize their functionality.
@@ -411,7 +483,7 @@ go get github.com/google/uuid@latest
 
 External modules will show up in `go.mod` and `go.sum` files. 
 
-`go.mod` Will contain a list of external imports. There is an optional additional comment `// indirect` if you do not have the source code locally and it must be downloaded from the internet.
+`go.mod` Will contain a list of external imports.
 
 `go.sum` Will contain two lines with hashes for every external module, one will be the hash of the entire module and the other will be the hash of it's `go.mod`, this helps it quickly find dependencies that have changed.
 
