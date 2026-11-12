@@ -21,6 +21,7 @@ func MakeMap() map[string]uint32 {
 	return x
 }
 
+// Adding to a map can be done inside a function without creating a new one.
 func AddToMap(key string, value uint32, myMap map[string]uint32) {
 	myMap[key] = value
 	printMap(myMap)

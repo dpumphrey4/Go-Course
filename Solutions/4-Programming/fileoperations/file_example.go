@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// Demos creating a file object
 func CreateFile(filename string) {
 	f, err := os.Create(filename)
 	if err != nil {
@@ -20,6 +21,7 @@ func CreateFile(filename string) {
 	readFileObj(f)
 }
 
+// Writes to a file with one call
 func WriteFile(filename string, data []byte) {
 	fmt.Printf("Writing to a file: %s\n\n", filename)
 
@@ -56,6 +58,7 @@ func Writing(filename string, dataBytes []byte, dataStr string) {
 	readFileObj(f)
 }
 
+// Reads an entire file at once.
 func ReadFile(filename string) {
 	fmt.Printf("Reading an entire file at once: %s\n", filename)
 

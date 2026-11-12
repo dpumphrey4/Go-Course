@@ -1,7 +1,7 @@
 # Tests
 Tests in Go are written in files that end with `_test.go`. The functions inside of these test files must also begin with `Test`.
 
-It is typical to see a file like `calculator.go`, and its corresponding test file `calulator_test.go` in the same directory/package.
+It is typical to see a file like `calculator.go`, and its corresponding test file `calculator_test.go` in the same directory/package.
 
 However, this is not necessary, you can place tests in their own directory/packages.
 

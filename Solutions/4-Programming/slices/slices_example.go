@@ -97,6 +97,7 @@ func CloneSlice() {
 	secondSlice = append(secondSlice, 20)
 }
 
+// Slices can cause a panic if you go out of bounds
 func SlicesPanic() {
 	fmt.Println("SlicesPanic->This program could die!")
 	x := []int{1, 2, 3, 4, 5}
@@ -114,6 +115,7 @@ func SlicesPanic() {
 	fmt.Printf("Changed %d to %d\n", index, x[index])
 }
 
+// If you append to a slice pointer, it will affect the original slice.
 func SlicePointer() {
 	x := []int{1, 2, 3, 4, 5}
 	y := &x
@@ -127,6 +129,7 @@ func SlicePointer() {
 	printSlice(x)
 }
 
+// Helper function to print slices
 func printSlice(x []int) {
 	for i, v := range x {
 		fmt.Printf("%d: %d\n", i, v)
