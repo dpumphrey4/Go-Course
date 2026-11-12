@@ -28,7 +28,7 @@ Run this on your proto files.
 protoc --go_out=. --go-grpc_out=. gophertalk.proto
 ```
 
-Remember to ```go use```.
+Remember to ```Add these as well.```.
 ```
 go get google.golang.org/protobuf@latest
 go get google.golang.org/grpc@latest
