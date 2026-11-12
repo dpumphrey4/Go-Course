@@ -108,6 +108,20 @@ var (
 ## Variable Assignment
 Variables are assigned with ```=```.
 
+## Strings
+Strings are in UTF-8, and are essentially immutable byte arrays.
+
+It is simple to make a string and they work very similar to Python.
+```
+myStr := "Hello"
+
+var myOtherStr string = "Goodbye"
+```
+
+You can concat strings by using `+` or `+=` just like Python.
+
+See all the string functionality here: https://pkg.go.dev/strings.
+
 ## Slices
 Slices are a variant of an array or list from Python, C, etc.
 
