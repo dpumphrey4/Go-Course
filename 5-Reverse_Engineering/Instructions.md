@@ -8,6 +8,7 @@ Take the binary and import it into Ghidra, then recompile the binary with ```go 
 Take some time to look at the functions in the Decompiler and in the listing view. What is interesting or off about these compared to C binaries?
 
 
+
 ```
 DO NOT GO PAST THIS POINT UNTIL THE INSTRUCTOR SAYS SO
 
